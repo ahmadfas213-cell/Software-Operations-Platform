@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Software Operations Platform</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="/manifest.json">
+
+<meta name="theme-color" content="#0b0f14">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+<meta name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent">
+
+<meta name="apple-mobile-web-app-title"
+      content="SOP">
+
+<link rel="icon"
+      type="image/svg+xml"
+      href="/icon.svg">
+</head>
+
+<body>
+
+<aside class="sidebar">
+
+    <div class="brand">
+        <span class="brand-icon">◇</span>
+
+        <div>
+            <h2>SOP</h2>
+            <p>Software Operations</p>
+        </div>
+    </div>
+
+    <nav>
+        <a href="#" class="nav-item active">Dashboard</a>
+        <a href="#projects" class="nav-item">Projects</a>
+        <a href="#monitoring" class="nav-item">Monitoring</a>
+        <a href="#logs" class="nav-item">Logs</a>
+        <a href="#tools" class="nav-item">Tools</a>
+    </nav>
+
+    <div class="sidebar-footer">
+        <span class="status-dot"></span>
+        <span>System Online</span>
+    </div>
+
+</aside>
+
+
+<main class="dashboard">
+
+    <header class="topbar">
+
+        <div>
+            <p class="eyebrow">SOFTWARE OPERATIONS PLATFORM</p>
+
+            <h1>Operations Dashboard</h1>
+
+            <p class="page-description">
+                Centralized software operations, monitoring, projects, logs and developer tools.
+            </p>
+        </div>
+
+        <div class="backend-status">
+            <span class="status-dot"></span>
+            <span id="status">Checking backend...</span>
+        </div>
+
+    </header>
+
+
+    <section class="stats-grid">
+
+        <article class="stat-card">
+            <span class="stat-label">PROJECTS</span>
+            <strong id="projectCount">--</strong>
+            <span class="stat-description">Tracked projects</span>
+        </article>
+
+        <article class="stat-card">
+            <span class="stat-label">MONITORING</span>
+            <strong id="monitoringCount">--</strong>
+            <span class="stat-description">System metrics</span>
+        </article>
+
+        <article class="stat-card">
+            <span class="stat-label">LOGS</span>
+            <strong id="logCount">--</strong>
+            <span class="stat-description">System records</span>
+        </article>
+
+        <article class="stat-card">
+            <span class="stat-label">TOOLS</span>
+            <strong id="toolCount">--</strong>
+            <span class="stat-description">Developer tools</span>
+        </article>
+
+    </section>
+
+
+    <section class="content-grid">
+
+        <div class="panel" id="monitoring">
+
+            <div class="panel-header">
+
+                <div>
+                    <span class="eyebrow">SYSTEM</span>
+                    <h2>System Health</h2>
+                </div>
+
+                <span class="badge online">
+                    ONLINE
+                </span>
+
+            </div>
+
+            <div class="health-info">
+
+                <div>
+                    <span>Backend</span>
+                    <strong id="backendHealth">Checking...</strong>
+                </div>
+
+                <div>
+                    <span>Uptime</span>
+                    <strong id="uptime">--</strong>
+                </div>
+
+                <div>
+                    <span>Last Check</span>
+                    <strong id="lastCheck">--</strong>
+                </div>
+
+            </div>
+
+            <div class="system-details">
+
+                <div>
+                    <span>Platform</span>
+                    <strong id="platform">--</strong>
+                </div>
+
+                <div>
+                    <span>Node.js</span>
+                    <strong id="nodeVersion">--</strong>
+                </div>
+
+                <div>
+                    <span>CPU Cores</span>
+                    <strong id="cpuCores">--</strong>
+                </div>
+
+                <div>
+                    <span>Memory Usage</span>
+                    <strong id="memoryUsage">--</strong>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="panel" id="logs">
+
+            <div class="panel-header">
+
+                <div>
+                    <span class="eyebrow">ACTIVITY</span>
+                    <h2>Recent Operations</h2>
+                </div>
+
+                <span class="panel-counter" id="logCounter">
+                    0 logs
+                </span>
+
+            </div>
+
+            <div id="recentLogs" class="activity-list">
+
+                <p class="empty-state">
+                    Loading activity...
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="projects-section" id="projects">
+
+        <div class="panel-header">
+
+            <div>
+                <span class="eyebrow">PROJECT MANAGEMENT</span>
+                <h2>Projects</h2>
+            </div>
+
+            <div class="project-actions">
+
+                <span id="projectTotal" class="project-total">
+                    0 projects
+                </span>
+
+                <button
+                    id="addProjectButton"
+                    class="primary-button">
+                    + Add Project
+                </button>
+
+            </div>
+
+        </div>
+
+        <div id="projectsList" class="projects-list">
+
+            <p class="empty-state">
+                Loading projects...
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <section class="tools-section" id="tools">
+
+        <div class="panel-header">
+
+            <div>
+                <span class="eyebrow">DEVELOPER UTILITIES</span>
+                <h2>Developer Tools</h2>
+            </div>
+
+            <span class="panel-counter">
+                2 tools online
+            </span>
+
+        </div>
+
+
+        <div class="tools-grid">
+
+            <article class="tool-card">
+
+                <div class="tool-icon">{"}"</div>
+
+                <div>
+                    <h3>JSON Formatter</h3>
+                    <p>Validate and format JSON data.</p>
+                </div>
+
+                <span class="tool-status">
+                    READY
+                </span>
+
+            </article>
+
+
+            <article class="tool-card">
+
+                <div class="tool-icon">SQL</div>
+
+                <div>
+                    <h3>SQL Analyzer</h3>
+                    <p>Inspect SQL query structure.</p>
+                </div>
+
+                <span class="tool-status">
+                    READY
+                </span>
+
+            </article>
+
+
+            <article class="tool-card">
+
+                <div class="tool-icon">⌁</div>
+
+                <div>
+                    <h3>Webhook Simulator</h3>
+                    <p>Generate and inspect webhook events.</p>
+                </div>
+
+                <span class="tool-status">
+                    READY
+                </span>
+
+            </article>
+
+        </div>
+
+
+        <div class="tool-workspace">
+
+            <div class="tool-panel">
+
+                <div class="tool-panel-header">
+
+                    <div>
+                        <span class="eyebrow">JSON</span>
+                        <h3>JSON Formatter</h3>
+                    </div>
+
+                    <button
+                        id="formatJsonButton"
+                        class="primary-button">
+                        Format JSON
+                    </button>
+
+                </div>
+
+                <textarea
+                    id="jsonInput"
+                    class="tool-input"
+                    placeholder='{"name":"Nono","active":true}'></textarea>
+
+                <pre
+                    id="jsonOutput"
+                    class="tool-output">Waiting for input...</pre>
+
+            </div>
+
+
+            <div class="tool-panel">
+
+                <div class="tool-panel-header">
+
+                    <div>
+                        <span class="eyebrow">SQL</span>
+                        <h3>SQL Analyzer</h3>
+                    </div>
+
+                    <button
+                        id="analyzeSqlButton"
+                        class="primary-button">
+                        Analyze SQL
+                    </button>
+
+                </div>
+
+                <textarea
+                    id="sqlInput"
+                    class="tool-input"
+                    placeholder="SELECT * FROM projects WHERE status = 'active'"></textarea>
+
+                <div id="sqlOutput" class="sql-results">
+
+                    <div class="sql-result">
+                        <span>Operation</span>
+                        <strong>--</strong>
+                    </div>
+
+                    <div class="sql-result">
+                        <span>WHERE</span>
+                        <strong>--</strong>
+                    </div>
+
+                    <div class="sql-result">
+                        <span>JOIN</span>
+                        <strong>--</strong>
+                    </div>
+
+                    <div class="sql-result">
+                        <span>GROUP BY</span>
+                        <strong>--</strong>
+                    </div>
+
+                    <div class="sql-result">
+                        <span>ORDER BY</span>
+                        <strong>--</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <footer class="footer">
+
+        <span>
+            Software Operations Platform
+        </span>
+
+        <span>
+            Backend API • MySQL • Node.js
+        </span>
+
+    </footer>
+
+</main>
+
+
+<div id="projectModal" class="modal hidden">
+
+    <div class="modal-overlay"></div>
+
+    <div class="modal-box">
+
+        <div class="modal-header">
+
+            <div>
+                <span class="eyebrow">
+                    PROJECT MANAGEMENT
+                </span>
+
+                <h2 id="modalTitle">
+                    Add Project
+                </h2>
+            </div>
+
+            <button
+                id="closeModal"
+                class="close-button">
+                ×
+            </button>
+
+        </div>
+
+
+        <form id="projectForm">
+
+            <input
+                type="hidden"
+                id="projectId">
+
+
+            <div class="form-group">
+
+                <label for="projectName">
+                    Project Name
+                </label>
+
+                <input
+                    type="text"
+                    id="projectName"
+                    placeholder="Enter project name"
+                    required>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="projectDescription">
+                    Description
+                </label>
+
+                <textarea
+                    id="projectDescription"
+                    placeholder="Describe the project"
+                    rows="4"></textarea>
+
+            </div>
+
+
+            <div class="form-row">
+
+                <div class="form-group">
+
+                    <label for="projectStatus">
+                        Status
+                    </label>
+
+                    <select id="projectStatus">
+
+                        <option value="active">
+                            Active
+                        </option>
+
+                        <option value="inactive">
+                            Inactive
+                        </option>
+
+                        <option value="maintenance">
+                            Maintenance
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="projectTechnology">
+                        Technology
+                    </label>
+
+                    <input
+                        type="text"
+                        id="projectTechnology"
+                        placeholder="Node.js, MySQL">
+
+                </div>
+
+            </div>
+
+
+            <div class="form-actions">
+
+                <button
+                    type="button"
+                    id="cancelProject"
+                    class="secondary-button">
+                    Cancel
+                </button>
+
+                <button
+                    type="submit"
+                    class="primary-button">
+                    Save Project
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<script src="app.js"></script>
+
+</body>
+</html>
