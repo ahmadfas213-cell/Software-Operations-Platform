@@ -292,7 +292,7 @@ npm install
 
 
 
-Create a `.env` file:
+Create a `.env` file :
 
 
 
