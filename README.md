@@ -330,7 +330,7 @@ software\_operations.sql
 
 
 
-Start the application:
+Start the application :
 
 
 
