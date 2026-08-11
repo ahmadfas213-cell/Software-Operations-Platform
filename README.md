@@ -426,7 +426,7 @@ The project uses MySQL for persistent application data.
 
 
 
-Database schema:
+Database schema :
 
 
 
