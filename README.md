@@ -438,7 +438,7 @@ software\_operations
 
 
 
-Main data areas include:
+Main data areas include :
 
 
 
