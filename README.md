@@ -280,7 +280,7 @@ cd Software-Operations-Platform
 
 
 
-Install dependencies:
+Install dependencies :
 
 
 
