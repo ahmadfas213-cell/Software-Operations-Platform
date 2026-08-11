@@ -318,7 +318,7 @@ JWT\_SECRET=your\_secret\_key
 
 
 
-Import the database schema from:
+Import the database schema from :
 
 
 
