@@ -6,7 +6,7 @@ Centralized software operations platform for managing projects, system logs, mon
 
 
 
-Live production deployment:
+Live production deployment :
 
 
 
