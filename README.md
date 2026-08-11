@@ -342,7 +342,7 @@ npm start
 
 
 
-The application will be available at:
+The application will be available at :
 
 
 
