@@ -266,7 +266,7 @@ Returns available developer utilities.
 
 
 
-Clone the repository:
+Clone the repository :
 
 
 
