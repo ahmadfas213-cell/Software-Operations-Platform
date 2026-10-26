@@ -1,4 +1,4 @@
-const CACHE_NAME = "sop-v1";
+const CACHE_NAME = "sop-v2";
 
 const STATIC_FILES = [
     "/",
