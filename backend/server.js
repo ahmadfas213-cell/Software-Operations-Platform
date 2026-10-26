@@ -2,6 +2,7 @@ const express = require("express");
 const path = require("path");
 require("dotenv").config();
 
+const authRoutes = require("./routes/auth");
 const projectsRoutes = require("./routes/projects");
 const logsRoutes = require("./routes/logs");
 const monitoringRoutes = require("./routes/monitoring");
@@ -34,6 +35,11 @@ app.get("/health", (req, res) => {
 
 });
 
+
+app.use(
+    "/api/auth",
+    authRoutes
+);
 
 app.use(
     "/api/projects",
