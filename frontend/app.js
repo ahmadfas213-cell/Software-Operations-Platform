@@ -260,8 +260,7 @@ function renderLogs(logs) {
 
     recentLogs.innerHTML =
         logs
-            .slice(-5)
-            .reverse()
+            .slice(0, 5)
             .map(log => `
 
                 <div class="activity-item">
