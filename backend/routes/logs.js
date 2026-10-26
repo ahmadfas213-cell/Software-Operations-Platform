@@ -5,10 +5,10 @@ const router = express.Router();
 
 router.get("/", async (req, res) => {
     try {
-        const limit = Math.min(
-            Number(req.query.limit) || 50,
-            200
-        );
+        const requestedLimit = Number.parseInt(req.query.limit, 10);
+        const limit = Number.isFinite(requestedLimit)
+            ? Math.min(Math.max(requestedLimit, 1), 200)
+            : 50;
 
         const [logs] = await db.execute(
             `SELECT *
